@@ -1,29 +1,12 @@
-name: Auto Sync Monitor  # 工作流名称
-
+name: Auto Sync
 on:
   push:
-    branches: [ "main" ]  # 仅监控main分支的推送
-
+    branches: [ main ]
 jobs:
   notify:
-    runs-on: ubuntu-latest  # 使用GitHub的Linux虚拟机
-
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3  # 官方检出代码动作
-
-    - name: Show commit info
-      run: |
-        echo "🔄 最新提交详情："
-        echo "提交者: ${{ github.actor }}"
-        echo "时间: $(date)"
-        echo "变更记录:"
-        git show --name-status
-        echo "🔗 永久链接："
-        echo "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
-
-    - name: Send notification
-      if: success()
-      run: |
-        echo "✅ 仓库同步完成！"
-        # 可扩展：添加邮件/钉钉/Slack通知（需配置token）
+      - run: |
+          echo "🎉 最新提交已同步:"
+          echo "提交者: ${{ github.actor }}"
+          echo "变更: https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
