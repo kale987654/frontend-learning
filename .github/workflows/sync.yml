@@ -1,0 +1,12 @@
+name: Auto Sync
+on:
+  push:
+    branches: [ main ]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "🎉 最新提交已同步:"
+          echo "提交者: ${{ github.actor }}"
+          echo "变更: https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
