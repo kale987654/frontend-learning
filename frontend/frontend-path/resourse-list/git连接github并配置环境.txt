@@ -1,0 +1,188 @@
+安装pycharm并与github建立远端仓库连接。
+
+
+///教程有
+  https://www.bilibili.com/video/BV1tfuKzzEE6/?spm_id_from=333.337.search-card.all.click&vd_source=f144569d9396b1f78400f8ddecf04c54
+  和
+  https://www.bilibili.com/video/BV1uG4y1a7gz/?spm_id_from=333.337.search-card.all.click&vd_source=f144569d9396b1f78400f8ddecf04c54
+
+/////git安装：
+  国外网站下载慢，可用国内资源CNPM Binaries Mirror，
+  点击这个地址https://registry.npmmirror.com/binary.html?path=git-for-windows，点进去，选择你需要的版本即可。 
+  如果该国内镜像网址失效，那么只能在pycharm的后台下载，或者上官网龟速下载。
+
+
+///giy版本控制：
+  单/vss/checkout from version control/git，url处填写github仓库详情页里的远程链接http/ssh
+
+
+///git基础环境配置：
+  在pycharm中的terminal中输入git commit -m "first commit"报错如下，
+  Author identity unknown
+
+  *** Please tell me who you are.
+
+  Run
+
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+
+  to set your account's default identity.
+  Omit --global to set the identity only in this repository.
+
+  fatal: unable to auto-detect email address (got 'yaorunlin@DESKTOP-0T0RDEG.(none)')
+  这是为首次使用 Git 时没有配置用户信息，可操作
+  git config --global user.email "你的真实邮箱"      ///注册github邮箱，必须是真实邮箱
+  git config --global user.name "你的名字或用户名"   ///必须是真实姓名，因为企业内部要用真名
+  git config --list   ///反应代码较长，不断enter直到出现user.email和user.name
+  文件夹下创建idea文件，配置# PyCharm
+  .idea/
+  *.iml
+
+  # Python
+  __pycache__/
+  *.pyc
+  venv/
+
+  # 前端通用
+  node_modules/
+  dist/
+  .env
+
+  pycharm中terminal中执行下列linux指令:
+  2. 创建并编辑文件（Windows可用记事本）
+  echo "# frontend" > README.md
+
+  # 3. 初始化Git
+  git init
+
+  # 4. 添加文件到暂存区
+  git add README.md
+
+  # 5. 提交（此时应该能成功）
+  git commit -m "first commit"      //提交文件到git
+
+  # 后续操作
+  git branch -M main
+  git remote add origin https://github.com/kale987654/frontend.git          //git用来远程连接github/仓库的，一次就行
+  git push -u origin main         //将提交文件推送到仓库
+
+  之后，git要求与github或github desktop绑定，绑定后就可在github查询已上传文件。
+
+  有一个现象要解释，就是github与git绑定后，会出现这个 http://127.0.0.1:50710/... 链接是：
+  GitHub 完成认证后返回的临时本地回调地址
+  不需要手动访问，认证流程已自动完成
+  看到这个页面说明绑定成功，可删除已经没有了。
+
+
+//创建自动化脚本：
+
+  python文件：
+  # auto_commit.py 改进版
+  import subprocess
+  import os
+
+  import time
+  MIN_INTERVAL = 300  # 5分钟
+  last_commit_time = 0  # 实际应从文件或变量中读取
+
+  if time.time() - last_commit_time < MIN_INTERVAL:
+      print(f"⏳ 距离上次提交不足{MIN_INTERVAL}秒，跳过")
+      exit(0)
+
+
+  def git_auto_commit():
+      repo_path = os.path.dirname(os.path.abspath(__file__))
+      os.chdir(repo_path)
+
+      try:
+          # 拉取更新
+          pull = subprocess.run(["git", "pull", "origin", "main"],
+                                capture_output=True, text=True)
+          print("拉取结果:\n", pull.stdout)
+
+          # 提交变更
+          commit = subprocess.run(["git", "commit", "-am", "Auto commit by script"],
+                                  capture_output=True, text=True)
+          print("提交结果:\n", commit.stdout)
+
+          # 推送
+          push = subprocess.run(["git", "push", "origin", "main"],
+                                capture_output=True, text=True)
+          print("推送结果:\n", push.stdout)
+
+          print("✅ 所有操作成功完成！")
+      except subprocess.CalledProcessError as e:
+          print("❌ 执行失败:\n", e.stderr)
+
+# 检查是否有待提交的修改
+status = subprocess.run(["git", "status", "--porcelain"],
+                       capture_output=True, text=True)
+if not status.stdout.strip():
+    print("⚠️ 没有检测到文件变更，跳过提交")
+    exit(0)
+
+if __name__ == "__main__":
+    git_auto_commit()
+
+
+  python文件要求有pythoon interpreter，即需要配置python解释器：
+  配置pythoon interpreter，菜单\file\settings\python\interpreter，add一个local的，选择base python的解释器路径，
+  windows一般为C:\Users\你的用户名\AppData\Local\Programs\Python\PythonXX\python.exe,不再这怎么办？说明没下载python。
+
+  1.上官网下载python，然后访问 Python 官网 下载最新版，安装时务必勾选：
+  ✅ Add Python to PATH（关键！）
+  ✅ Install launcher for all users
+
+  # powershell指令检查 Python 是否存在
+  where.exe python
+  where.exe python3
+
+  # 检查版本
+  python --version
+  python3 --version
+
+  2. 手动添加 Python 到 PyCharm
+  方法一：通过 PowerShell 获取路径
+  powershell
+  # 获取精确的 Python 路径
+  $pyPath = (Get-Command python).Source
+  Write-Output "Python路径: $pyPath"
+  复制输出的路径（如 C:\Python39\python.exe）得C:\Users\yaorunlin\AppData\Local\Programs\Python\Python313\python.exe
+
+  在 PyCharm 中：
+
+  File > Settings > Project: xxx > Python Interpreter
+
+  点击齿轮图标 → Add... → System Interpreter
+
+  粘贴路径 → 点击 OK
+
+
+
+
+///仓库排版样式模板（记得路径中的文件夹名不能存在中文，中文的文件夹名要全改英文）：
+  /前端学习记录
+  ├── 0-学习路线.md
+  ├── 1-资源清单.md
+  ├── 2-月度计划
+  │   ├── 2023-09-计划.md
+  │   └── 2023-10-计划.md
+  ├── 3-学习笔记
+  │   ├── HTML-CSS笔记.md
+  │   ├── JavaScript核心.md
+  │   └── Vue3深度指南.md
+  ├── 4-每日记录
+  │   ├── 2023-09
+  │   │   ├── 2023-09-01.md
+  │   │   └── 2023-09-02.md
+  │   └── 2023-10
+  ├── 5-项目实践
+  │   ├── demo-说明模板.md
+  │   └── projects
+  │       ├── blog-system
+  │       └── e-commerce
+  └── 6-求职材料
+      ├── 简历模板.docx
+      └── 面试题库.md
+  ```

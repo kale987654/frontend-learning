@@ -1,0 +1,3 @@
+html5文件由声明、html、head、body、title和meta等标签组成：
+    <html></html>是用来定义html5文档的，也是文档的根标签，位于最外层，限定了文档的开始和结束节点。
+    

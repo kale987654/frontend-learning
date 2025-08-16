@@ -1,0 +1,14 @@
+1.创建一个.txt文件
+2.按格式输入，并适当添加自己的想法内容
+	<html>
+    		<head>
+        		<title>我的网页</title>
+   		 </head>
+    		<body>
+       			 Hello，我的第一个网页
+    		</body>
+	</html>
+3.修改拓展名为.html
+4.双击打开，打开方式选择浏览器。
+
+文件包括introduceMyself、welcome

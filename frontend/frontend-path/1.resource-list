@@ -1,0 +1,93 @@
+
+### 📚 精选资源清单（免费+优质）
+
+#### 一、核心学习平台
+| 类型         | 名称                          | 链接                                                                 | 特点                     |
+|--------------|-------------------------------|----------------------------------------------------------------------|--------------------------|
+| **综合**     | MDN Web Docs                  | [https://developer.mozilla.org](https://developer.mozilla.org)        | 权威前端文档             |
+| **教程**     | 现代JavaScript教程            | [https://zh.javascript.info](https://zh.javascript.info)              | 深度与广度兼备           |
+| **实战**     | JavaScript30                  | [https://javascript30.com](https://javascript30.com)                  | 30个JS实战项目           |
+| **Vue**      | Vue3官方文档                  | [https://cn.vuejs.org](https://cn.vuejs.org)                          | 最佳学习资料             |
+
+#### 二、技术专题资源
+| 主题           | 资源                                                                 | 说明                          |
+|----------------|----------------------------------------------------------------------|-------------------------------|
+| **CSS布局**    | CSS Grid Garden                                                     | [https://cssgridgarden.com](https://cssgridgarden.com) |
+| **Flexbox**    | Flexbox Froggy                                                      | [https://flexboxfroggy.com](https://flexboxfroggy.com) |
+| **JS算法**     | 前端算法小屋                                                        | [https://github.com/leetcode-pp/91alg-1](https://github.com/leetcode-pp/91alg-1) |
+| **Git**        | Learn Git Branching                                                 | [https://learngitbranching.js.org](https://learngitbranching.js.org) |
+
+#### 三、项目实战资源
+| 类型         | 名称                          | 链接                                                                 |
+|--------------|-------------------------------|----------------------------------------------------------------------|
+| **设计稿**   | Frontend Mentor               | [https://www.frontendmentor.io](https://www.frontendmentor.io)        |
+| **API接口**  | 公开API集合                   | [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis) |
+| **部署平台** | Vercel                        | [https://vercel.com](https://vercel.com)                              |
+
+#### 四、求职必备资源
+| 类型         | 名称                          | 链接                                                                 |
+|--------------|-------------------------------|----------------------------------------------------------------------|
+| **简历模板** | Awesome Resume               | [https://github.com/resumejob/awesome-resume](https://github.com/resumejob/awesome-resume) |
+| **面试题**   | 前端面试星球                  | [https://github.com/Advanced-Frontend/Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question) |
+| **薪资查询** | 职友集                        | [https://www.jobui.com/salary](https://www.jobui.com/salary)          |
+
+---
+
+### 📂 学习记录文件结构（推荐创建）
+```markdown
+/前端学习记录
+├── 0-学习路线.md
+├── 1-资源清单.md
+├── 2-月度计划
+│   ├── 2023-09-计划.md
+│   └── 2023-10-计划.md
+├── 3-学习笔记
+│   ├── HTML-CSS笔记.md
+│   ├── JavaScript核心.md
+│   └── Vue3深度指南.md
+├── 4-每日记录
+│   ├── 2023-09
+│   │   ├── 2023-09-01.md
+│   │   └── 2023-09-02.md
+│   └── 2023-10
+├── 5-项目实践
+│   ├── demo-说明模板.md
+│   └── projects
+│       ├── blog-system
+│       └── e-commerce
+└── 6-求职材料
+    ├── 简历模板.docx
+    └── 面试题库.md
+```
+
+---
+
+### 📝 文件内容模板
+
+#### 1. 学习路线.md
+```markdown
+## 前端开发6个月冲刺计划
+
+### 阶段目标
+- **1-3月**：掌握HTML/CSS/JS核心，完成50+Demo
+- **4-5月**：精通Vue3技术栈，开发3个组件库
+- **6月**：完成2个完整项目，启动求职准备
+
+### 详细里程碑
+```mermaid
+gantt
+    title 学习路线图
+    dateFormat  YYYY-MM-DD
+    section 基础阶段
+    HTML/CSS      ：active, des1, 2023-09-01, 30d
+    JavaScript    ： des2, after des1, 45d
+    section 框架阶段
+    Vue3核心      ： des3, 2023-10-15, 45d
+    Vue生态       ： des4, after des3, 30d
+    section 项目阶段
+    个人博客      ： des5, 2023-12-01, 30d
+    电商系统      ： des6, after des5, 30d
+```
+
+[返回资源清单](1-资源清单.md)
+```
