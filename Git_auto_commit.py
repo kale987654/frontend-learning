@@ -2,6 +2,14 @@
 import subprocess
 import os
 
+import time
+MIN_INTERVAL = 300  # 5分钟
+last_commit_time = 0  # 实际应从文件或变量中读取
+
+if time.time() - last_commit_time < MIN_INTERVAL:
+    print(f"⏳ 距离上次提交不足{MIN_INTERVAL}秒，跳过")
+    exit(0)
+
 
 def git_auto_commit():
     repo_path = os.path.dirname(os.path.abspath(__file__))
