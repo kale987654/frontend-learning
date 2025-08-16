@@ -1,18 +1,20 @@
-# auto_utils.py
-import os
+# auto_commit.py
 import subprocess
-from pathlib import Path
+import os
 
 
-def git_auto_commit(repo_path, commit_msg="Auto commit"):
-    """Git自动提交脚本"""
+def git_auto_commit():
+    repo_path = os.path.dirname(os.path.abspath(__file__))
     os.chdir(repo_path)
+
+    # 先拉取更新避免冲突
+    subprocess.run(["git", "pull", "origin", "main"], check=True)
+
+    # 添加修改（排除venv）
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", commit_msg])
-    subprocess.run(["git", "push"])
+    subprocess.run(["git", "commit", "-m", "Auto commit by script"])
+    subprocess.run(["git", "push", "origin", "main"])
 
 
 if __name__ == "__main__":
-    # 示例：自动提交当前项目
-    project_path = Path(__file__).parent
-    git_auto_commit(project_path)
+    git_auto_commit()
