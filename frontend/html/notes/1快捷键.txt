@@ -1,5 +1,5 @@
 1.创建浏览器 html:5 tab 或 ！tab    在html文件中输入html:5后按下tab键，
-2.注释 ctrl+/   可以选中文本注释  
+2.注释 ctrl+/   可以选中文本注释
 3.保存文件 CTRL+s 文件标签页后有个白色小圆表示未保存，保存后显示×
 4.文件/首选项/设置/拓展/emmert,勾选trigger...on tab和use...completions，后可用！+tab，打开浏览器基本框架
 5.代码格式化 shift+alt+f  可以按照标准方式对代码进行对齐

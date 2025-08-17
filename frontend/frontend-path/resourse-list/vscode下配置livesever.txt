@@ -1,0 +1,16 @@
+1. 修改 VSCode 默认浏览器设置
+    方法一：直接修改配置
+    打开 VSCode 设置：
+
+    快捷键：Ctrl + ,（Windows/Linux）或 Cmd + ,（Mac）
+
+    或点击左下角齿轮图标 → Settings
+
+    搜索 live server settings，找到以下配置项：
+
+    json
+    "liveServer.settings.CustomBrowser": "chrome"
+    可选值：chrome、firefox、edge、safari 或 none（不自动打开）
+
+    保存后重启 VSCode
+
