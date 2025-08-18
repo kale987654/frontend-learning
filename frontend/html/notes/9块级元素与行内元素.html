@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级元素与行内元素</title>
+</head>
+<body>
+    <!-- 块级元素：h1、p、div，独占一行 -->
+     <h1>h1</h1>
+     <p>p1</p>
+     <div>div1</div>
+     <!-- 行内元素：input、span，共用一行 -->
+    <input type="text">
+    <span>span1</span>
+    <!-- 规则1：块级元素除某些情况，几乎什么元素都能写————行内元素、块级元素 -->
+     <div>
+        <p>p2</p>
+        <h1>h11</h1>
+     </div>
+     <!-- 规则2：行内元素里只能包含行内元素 -->
+      <span>
+        <input type="text" name="" id="">
+        <span>span2</span>
+      </span>
+      <!-- 规则3：千万不要在行内元素内嵌套块级元素，会导致css调试时错乱，也会导致浏览器自适应调整失败 -->
+       <!-- 下面案例中，第一个span的元素范围超过了一个行，甚至把span外的第二个span也纳入了自己的范围，导致css调试错乱 -->
+       <span>
+        <span>span3</span>
+        <div>
+            <span>span4</span>
+        </div>
+       </span>
+       <span>span4</span>
+       <!-- 规则4：h1-6之间不能互相嵌套，被包含的会被浏览器甩出来 -->
+        <h1>ttt<h5>hhh</h5></h1>
+       <!-- 规则5：p标签中，不能包含块元素，被包含的会被浏览器甩出来 -->
+       <p><h3>hhh</h3></p>
+       <!-- 很多诸如marquee的标签，已经被废弃了，详情请到mdn网站查看 -->
+</body>
+</html>

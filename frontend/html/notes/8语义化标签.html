@@ -1,0 +1,60 @@
+<!--
+    标签      语义
+    h1        标题
+    p         段落
+    div       无
+
+    每一个标签都有自己的默认语义效果，但这个默认效果不重要，都是要用css改的，语义最重要。
+    既然css这么有用，为什么不都用div，再用css改出想要的效果，而设置那么多的标签呢？
+    因为效果不重要，都是可以改的，而标签的语义最重要，它是这个标签为什么放这的根本逻辑，遵循一定逻辑。
+
+    语义化有什么用？
+    1.方便开发者阅读，不用打开浏览器就知道想要得到的效果。如果全是div，就要对着浏览器渲染的页面结果，一个一个去理解。
+    2.方便SEO（搜索引擎）优化，有利于爬虫抓取，就能够提高网页再浏览器展示的优先级。
+    3.方便设备解析《屏幕阅读器、盲人阅读器）。一切的一切都有共同共通的逻辑，比如文章结构，就像编码解码一样，编码规则与解码规则需保持一致。
+
+    心法：
+        如果你有一天想结婚了，一定不要是因为年龄大了，而是爱情来了！
+        如果你有一天想用h1了，一定不要因为想用他的默认效果，而是它的语义————主要标题！
+        如果你有一天想用p了，一定不要因为想用它的默认效果，而是它的语义————段落！
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            font-size: 20px;
+            color: red;
+            background-color: green;
+        }
+        .title-1{
+            font-size: 20px;
+            color: red;
+            background-color: green;
+        }
+        .title-2{
+            font-size: 20px;
+            color: red;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>把个人信息“安全堤”筑牢</h1>
+    <p class="title-1">把个人信息“安全堤”筑牢</p>
+    <div class="title-2">把个人信息“安全堤”筑牢</div>
+    <div>
+        <p>2025-8-18 17:15 1条评论</p>
+        <p>jjjjjjjjjsjfisdjfisifj</p>
+        <p>fojsojsojfoijfsjfjfosjfosj</p>
+    </div>
+</body>
+</html>

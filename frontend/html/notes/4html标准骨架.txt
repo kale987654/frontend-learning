@@ -1,0 +1,36 @@
+html5文件由声明、html、head、body、title和meta等标签组成：
+    声明<!-- <!DOCTYPE html>，防止异变。
+    <html></html>是用来定义html5文档的，也是文档的根标签，是最高层级，限定了文档的开始和结束节点。
+    <head></head>是用来定义html5头部的，是html标签的下一级，包含了文档的属性和信息，还有标题。不会直接显示给用户。
+    <body></body>是用来定义html5主体的，是html标签的下一级，位于head后，包含了所有文档内容。会直接显示给用户。
+    <title><title>是用来定义html5标题的，是head标签中唯一要求必需的，在网页标签栏或状态栏显示，影响SEO（搜索优先）优化。
+    <meta>是用来定义和描述文档的，包含文档属性和关键字。
+    <!-- -->是注释，快捷键ctrl+/。
+
+//中文互联网标准
+<!doctype html>
+<html lang="zh-CN">             //lang='en'是英文互联网，lang='zh-CN'是中文互联网
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+    <marquee behavior="" direction="">i love you</marquee>
+</body>
+</html>
+
+
+
+//英文互联网标准
+<!DOCTYPE html>            //声明，告诉浏览器采用html5标准渲染
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">              //编码规则，告诉浏览器采用什么解码规则，此处编码规则一定要与右下角编码规则保持一致
+        <meta name="keywords" content="如何编写一个完整的html代码？">               //关键字，为网页提供搜索关键字
+        <meta name="discription" content="html、架构、javascript、css、vue">              //描述，为网页提供描述
+        <title>html基础骨架</title>             //标题，为网页标签名提供名称
+    </head>
+    <body>
+    </body>
+</html>
