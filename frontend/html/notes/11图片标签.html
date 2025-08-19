@@ -1,0 +1,22 @@
+<!--
+    <img>是单标签，姑且认为是行内元素。
+    <img>属性：
+        src是路径地址，包含同级路径（同一文件内）和非同级路径（文件夹外）
+        alt是图片说明，用于搜索引擎搜索，有利于SEO优化
+        width、height，用于调整宽高，图片一般不做放大处理，一般只修改一个属性，保持比例不变
+    拓展：
+        同级路径，即同一文件夹内并列的文件，src为  文件名.文件后缀
+        非同级，即不在同一文件夹内并列的文件，src为  （相对路径）../文件夹名/文件名.文件后缀
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../otherResource/绿色自然.jpg" alt="" width="200px" height="auto">
+</body>
+</html>

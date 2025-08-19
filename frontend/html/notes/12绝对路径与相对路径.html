@@ -1,0 +1,51 @@
+<!--
+    frontend
+        html
+            demos
+                绝对路径与相对路径.html
+                a
+                    绿色自然.jpg
+        photos
+            绿色自然.jpg
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 相对路径,即相对于当前html文件而言的路径，当当前html文件改变位置后，基于相对路径的源图片全部失效
+        ./ 同级，/下级，../上级  //协议相对
+    -->
+        <!-- ./ 表示本文件当前层级内，./a/ 表示本文件当前层级内的a文件夹下的，依次类推 -->
+        <img src="./绿色自然 copy.jpg" alt="美好的绿色自然风光">
+
+        <!-- ../ 表示本文件当前层级的上一级内 -->
+        <img src="../a/绿色自然 copy.jpg" alt="美好的绿色自然风光">
+
+        <!-- ../../../的无限叠加，可以实现更上层级的图片调用 -->
+         <img src="../../photos/绿色自然 copy.jpg" alt="">
+
+        <!-- 错误示范，frontend不是上一层级，导致图片引用失败，失败后显示alt 美好的绿色自然风光 -->
+        <img src="../frontend/html/demos/a/绿色自然 copy.jpg" alt="美好的绿色自然风光">
+
+        <!--   //表示协议相对，根据文件后缀自动匹配，如.com匹配https://  .html匹配C://     -->
+
+    <!-- 绝对路径，分为 本地绝对路径 和 网络绝对路径（协议绝对路径） -->
+        <!-- 本地绝对路径，基于盘服，最大层级必须是盘
+            问题：
+                是livesever不支持访问本地文件，因为它创建了一个服务器地址来打开浏览器，而不是本地文件地址，如https://127....
+                得在本地文件资源管理器中打开html文件，才能查看效果
+        -->
+        <img src="D:\初级前端开发工程师\日常练习代码库\frontend\html\photos\绿色自然 copy.jpg" alt="美好的绿色自然风光">
+
+         <!-- 网络绝对路径，即在网站上的图片路径，即 https://
+                    获取方式：在浏览器中右键单击图片选中新标签页打开图片，地址栏内即为网络绝对路径地址
+                有的网站会把本站内图片的网络绝对路径变为防盗链，如微信公众号，导致html无法访问图片
+         -->
+        <img src="https://p3-sign.toutiaoimg.com/tos-cn-i-axegupay5k/a1c0072f34ba4d1182c9593623fc7421~tplv-tt-origin-web:gif.jpeg?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1756203775&x-signature=afUYN9%2B%2F5CygvfFmbL1DgXzbydw%3D" alt="">
+</body>
+</html>
