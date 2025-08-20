@@ -1,0 +1,97 @@
+<!--
+    列表分为有序、无序和自定义列表————ol、ul、dl。
+        ol下有标签li，即列表项目
+        ul下有标签li，即列表项目
+        dl下有标签dt、dd，前为自定义标题（术语名称），后为自定义描述（术语描述）
+
+    注意事项：
+        1.li要在 ol、ul、dl 下使用，不能单独使用，或嵌套在其他标签下。
+        2.ol、ul、dl下的标签，最好不要出现除 li 的标签，最好用 li将这个标签包裹起来，再放入
+        3.ol、ul下的li里可以嵌套，可以实现 列表项li 嵌套 列表ol、ul，也可以嵌套其它标签，如a
+        4.dl下的dd可以同级描述dt
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 有序列表ol -->
+    <h3>把大象装进冰箱一共分为几步？</h3>
+    <ol>
+        <li>打开冰箱门</li>
+        <li>把大象装进冰箱</li>
+        <li>关上冰箱门</li>
+    </ol>
+
+    <!-- 无序列表ul -->
+    <h3>一天有什么任务？</h3>
+    <ul>
+        <li>背单词</li>
+        <li>学习html</li>
+        <li>阅读书籍</li>
+        <li>学习曾仕强经验</li>
+        <li>早睡早起</li>
+    </ul>
+
+    <!-- 自定义列表dl -->
+    <h3>为什么要学习？</h3>
+    <dl>
+        <dt>融入社会：</dt>
+        <dd>学习是人在社会中活动的前提。人与他人进行互动时，总是基于某种关系来确定自身的位置与要求。
+            <br>
+            这一程序的完成，总依赖于对于他人的模仿与受他人的规训，这就完成了学习。
+        </dd>
+        <dt>实现自我：</dt>
+        <dd>人在成长中，总是伴随着欲望与创伤。只有学习，才能正视并实现欲望，才能理解并与创伤相伴余生。</dd>
+    </dl>
+
+    <!-- 注意事项 -->
+        <!-- 1.li要在 ol、ul、dl 下使用，不能单独使用，或嵌套在其他标签下。 -->
+         <li>hhh</li>
+         <h3>语气词</h3>
+         <ol>
+            <li>hayhayhay</li>
+            <li>babababa</li>
+            <li>mamamama</li>
+         </ol>
+
+        <!-- 2.ol、ul、dl下的标签，最好不要出现非 li 的标签，最好用 li将这个标签包裹起来，再放入 -->
+          <h3>购物网站大全</h3>
+          <ul>
+            <li><a href="//www.jd.com">京东</a></li>
+            <li><a href="//pdd.bunian.cn">拼多多</a></li>
+            <li><a href="//www.taobao.com">淘宝</a></li>
+          </ul>
+
+        <!-- 3.ol、ul下的li里可以嵌套，可以实现 列表项li 嵌套 列表ol、ul，也可以嵌套其它标签，如a -->
+         <h3>中国著名旅游城市</h3>
+         <ul>
+            <li>桂林</li>
+            <li>
+                <span>上海</span>
+                <ul>
+                    <li>外滩</li>
+                    <li>东方明珠</li>
+                </ul>
+
+            </li>
+            <li>长沙</li>
+            <li>香港</li>
+         </ul>
+
+        <!-- 4.dl下的dd可以同级描述dt -->
+         <h3>上学准备</h3>
+         <dl>
+            <dt>文具</dt>
+            <dd>铅笔</dd>
+            <dd>橡皮</dd>
+            <dd>中性笔</dd>
+            <dt>课本</dt>
+            <dd>语文书、英语书、数学书</dd>
+         </dl>
+</body>
+</html>

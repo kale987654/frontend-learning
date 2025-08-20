@@ -1,0 +1,249 @@
+<!-- 表格标签与基础属性 -->
+<!--
+    表格结构：
+        <table>                     //table表格标签
+            <caption></caption>     //caption标题标签
+            <thead>                 //thead表格头部
+                <tr>                //tr行标签
+                    <th></th>       //th列表格头部数据
+                </tr>
+            </thead>
+            <tbody>                 //tbody表格主体
+                <tr>
+                    <td></td>       //td列表格数据
+                </tr>
+            </tbody>
+            <tfoot>                 //tfoot表格脚注
+                <tr>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+    标签属性：
+        <table></table>:
+            border=""，控制表格边框，<1时控制表格外框和单元格外框，>1时控制表格外框，单元格外框为1px
+            width=""，控制表格宽度，具体列的宽度取决于 其列中单元格最宽者的宽度与总体最大宽度的比值乘与总宽度
+            height=""，控制表格主体的单元格宽度，thead、tfoot不受 table的height影响
+            cellspacing=""，控制单元格上下左右间距，可为0
+        <thead></thead>、<tbody></tbody>、<tfoot></tfoot>、<tr></tr>、<th></th>、<td></td>：
+            height=""，控制表格头部的行高
+            align=""，控制单元格内数据的水平对齐方式，参数————靠左left，居中center，靠右right
+            valign=""，控制单元格内数据的垂直对齐方式,参数————靠上top，居中middle，靠下bottom
+            thead内数据默认水平居中，垂直居中
+        跨行与跨列：
+
+
+    注意：
+        height、weight的值牵一发动全身，小处改变，大处不变，其它小处就得变。
+        请详细计算height属性里的值。table的height=caption's+thead's+tbody's+tfoot's。因为它的height标定的
+    是最小值，若表格内四部分的height加起来不足最小值，会将缺少部分补到tbody内。
+
+-->
+
+<!-- 表格跨行与跨列 -->
+<!--
+    <td colspan="">，用于跨列，用于th或td标签
+    <td rowspan="">，用于跨行，用于th或td标签
+
+    使用说明：
+        将表格理解为5*5的行列式：
+                                                          1-3 1-4
+           | 1-1 1-2 1-3 1-4 1-5 |              | 1-1 1-2         1-5 |
+           | 2-1 2-2 2-3 2-4 2-5 |  跨行跨列后   | 2-1 2-2 2-3 2-4      | 2-5
+           | 3-1 3-2 3-3 3-4 3-5 | ———————————》|     3-2 3-3 3-4 3-5 | 3-1
+           | 4-1 4-2 4-3 4-4 4-5 |              |     4-2 4-3 4-4 4-5 | 4-1
+           | 5-1 5-2 5-3 5-4 5-5 |              | 5-1 5-2 5-3 5-4 5-5 |
+        观察：
+            1-2 1-3 1-4 变为了 1-2
+            2-1 3-1 4-1 变为了 2-1
+            1-5 2-5 变为了1-5
+        实际变化：
+            1-2占了后两列，共垮了3列，写colspan="3"，被占的1-3 1-4 被删掉，或不用写th或td
+            2-1占了下两行，共跨了3行，写rowspan="3"，被占的3-1 4-1 被删掉，或不写th或td
+            1-5占了下一行，共跨了2行，写rowspan="2"，被占的2-5 被删掉，或不写th或td
+        规律：
+            跨列时，遵循左向右跨的原则，右边的列th或td不写
+            跨行时，遵循上向下跨的原则，下边行的列向右挤，下边行的最后几个被挤出，要删掉或不写th或td
+        实际操作方式：
+            遵循上述规律（左跨右、上跨下）的原则，将被跨的写为空白的th或td标签，即<td></td>，按表格 x*x 编写表格，后面
+            属性该添的添，td或th该删的删
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 代码跨行前 -->
+    <div name="chaBefore">
+        <table border="1px">
+            <caption>课程表</caption>
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>上课</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>活动与休息</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>星期</td>
+                    <td>星期一</td>
+                    <td>星期二</td>
+                    <td>星期三</td>
+                    <td>星期四</td>
+                    <td>星期五</td>
+                    <td>星期六</td>
+                    <td>星期日</td>
+                </tr>
+                <tr>
+                    <td>上午</td>
+                    <td>语文</td>
+                    <td>数学</td>
+                    <td>英语</td>
+                    <td>英语</td>
+                    <td>物理</td>
+                    <td>数学竞赛</td>
+                    <td>休息</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>数学</td>
+                    <td>语文</td>
+                    <td>化学</td>
+                    <td>物理</td>
+                    <td>英语</td>
+                    <td>篮球比赛</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>化学</td>
+                    <td>语文</td>
+                    <td>体育</td>
+                    <td>历史</td>
+                    <td>地理</td>
+                    <td>每周一考</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>体育</td>
+                    <td>化学</td>
+                    <td>语文</td>
+                    <td>数学</td>
+                    <td>英语</td>
+                    <td>社会实践</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>下午</td>
+                    <td>语文</td>
+                    <td>英语</td>
+                    <td>数学</td>
+                    <td>物理</td>
+                    <td>数学</td>
+                    <td>英语角</td>
+                    <td>休息</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>化学</td>
+                    <td>物理</td>
+                    <td>地理</td>
+                    <td>生物</td>
+                    <td>体育</td>
+                    <td>自由活动</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 代码跨行后 -->
+    <div name="chaAfter">
+        <table border="1px">
+        <caption>课程表</caption>
+        <thead>
+            <tr>
+                <th>项目</th>
+                <th colspan="5">上课</th>
+                <th colspan="2">活动与休息</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>星期</td>
+                <td>星期一</td>
+                <td>星期二</td>
+                <td>星期三</td>
+                <td>星期四</td>
+                <td>星期五</td>
+                <td>星期六</td>
+                <td>星期日</td>
+            </tr>
+            <tr>
+                <td rowspan="4">上午</td>
+                <td>语文</td>
+                <td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+                <td>物理</td>
+                <td>数学竞赛</td>
+                <td rowspan="4">休息</td>
+            </tr>
+            <tr>
+                <td>数学</td>
+                <td>语文</td>
+                <td>化学</td>
+                <td>物理</td>
+                <td>英语</td>
+                <td>篮球比赛</td>
+            </tr>
+            <tr>
+                <td>化学</td>
+                <td>语文</td>
+                <td>体育</td>
+                <td>历史</td>
+                <td>地理</td>
+                <td>每周一考</td>
+            </tr>
+            <tr>
+                <td>体育</td>
+                <td>化学</td>
+                <td>语文</td>
+                <td>数学</td>
+                <td>英语</td>
+                <td>社会实践</td>
+            </tr>
+            <tr>
+                <td rowspan="2">下午</td>
+                <td>语文</td>
+                <td>英语</td>
+                <td>数学</td>
+                <td>物理</td>
+                <td>数学</td>
+                <td>英语角</td>
+                <td rowspan="2">休息</td>
+            </tr>
+            <tr>
+                <td>化学</td>
+                <td>物理</td>
+                <td>地理</td>
+                <td>生物</td>
+                <td>体育</td>
+                <td>自由活动</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

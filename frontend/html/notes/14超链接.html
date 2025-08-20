@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!--
+<!--
         <a></a>是超链接标签，可以链接到本地页面、浏览器页面、本文档某一媒体、文字、段落
         采用属性：
             href 链接属性，可链接本地页面、浏览器页面、本地某一媒体、文字、段落，也可"#""#top"到页面顶部
@@ -21,27 +13,52 @@
             target 目标页面，可以选择浏览器中的指定标签页打开链接
                 _self 浏览器默认，本标签页打开新链接
                 _blank 另一标签页打开
+
+             download 下载文件，点击连接跳转资源管理器下载
+                download="文件名.后缀名"，从源文件下载成该自由命名的文件
     -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
         <!-- href -->
             <!-- 绝对地址 -->
-            <a href="https://www.jd.com/">京东</a>
-            <a href="./a/3.标题标签.html">标题标签</a>
+                <a href="https://www.jd.com/">京东</a>
+                <a href="./a/3.标题标签.html">标题标签</a>
             <!-- 协议相对地址 -->
-            <a href="//www.jd.com">京东</a>
-            <!-- 本地html文件 -->
-            <a href="./1快捷键实战.html">快捷键实战</a>
+                <a href="//www.jd.com">京东</a>
+            <!-- 本地文件 .html .jpg .png .mp4 .webp .gif等 -->
+                <a href="./1快捷键实战.html">快捷键实战</a>
             <!-- 回到顶部 -->
-            <a href="#">回到顶部</a>
-            <a href="#top">回到顶部</a>
-            <!-- 到本页面特定字段、媒体 -->
-            <a href="#hhhh">hhhh</a>
-            <a id="hhhh">hahahaha</a>
-            <!-- 到某一邮箱地址 -->
-            <a href="mailto:8848448@qq.com">88883838@qq.com</a>
-            <!-- 到某一电话 -->
-            <a href="tel:37848484">3848844848</a>
+                <a href="#">回到顶部</a>
+                <a href="#top">回到顶部</a>
+            <!-- 刷新页面 -->
+                <a href="">刷新页面</a>
+            <!-- 调用javascript脚本 -->
+                <a href="javascript:;"></a>
+            <!-- 锚点 html5用id 到本页面特定字段、媒体 -->
+                <a href="#hhhh">hhhh</a>
+                <a name="hhhh">hahahaha</a>
+            <!-- name用于a中来跳转锚点，id全局变量用于任意标签跳转锚点  -->
+                <a href="#lllll">lllll</a>
+                <p id="lllll">lalalala</p>
+            <!-- 发送某一邮件 -->
+                <a href="mailto:8848448@qq.com">88883838@qq.com</a>
+            <!-- 打某一电话 -->
+                <a href="tel:37848484">3848844848</a>
+            <!-- 发送短信 -->
+                <a href="sms:10086">10086</a>
+
         <!-- target -->
-            <a href="//www.jd.com" target="_blank">京东</a>
-            <a href="//www.jd.com" target="_self">京东</a>
+                <a href="//www.jd.com" target="_blank">京东</a>
+                <a href="//www.jd.com" target="_self">京东</a>
+
+        <!--    download    -->
+                <a href="./1快捷键实战.html" download="hh.html">1快捷键实战.html</a>
 </body>
 </html>
