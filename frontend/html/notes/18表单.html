@@ -1,11 +1,261 @@
+<!-- from表单搜索结构：
+    <form action="协议网址/?" target="_blank">
+        <input type="text" name="属性名">
+        <button>搜索</button>
+    </form>   
+    
+    属性:
+        form：
+            action=""，提交给浏览器的url，决定搜索模块的执行网址，即在哪搜索，包含 协议地址/? 
+            target=""，决定新页面在哪个标签页打开，_blank、_self
+            method=""，值为get和post
+        
+        input：
+            type=""，决定输入文本的语义，并附带不同的默认样式，如password为*****，有text、password、
+            name=""，用于锚定协议网址的搜索模块，如百度的wd，京东的keyword
+            maxlength=""，最大长度，几字节
+
+    特殊之处：
+        1.协议网址之后的 /? 的？得根据不同网站的浏览器地址后的 字块 来调整
+        2.input的name属性的值得根据不同网站的浏览器网址 /?后面的 字块为主，
+            如bilibili的搜索栏网址
+                https://search.bilibili.com/all?keyword=hhh
+
+             ————》/all  keyword
+    示例：
+        百度：
+            <form action="https://www.baidu.com/s">
+                <input type="text" name="wd">
+                <button>搜索</button>
+            </form>
+        
+        京东：
+            <form action="https://search.jd.com/search">
+                <input type="text" name="keyword">
+                <button>搜索</button>
+            </form>
+        
+        bilibili:
+            <form action="https://search.bilibili.com/all">
+                <input type="text" name="keyword">
+                <button>搜索</button>
+            </form>
+
+    a的搜索：
+        a标签也能完成搜索功能，但需要后台提供很多a标签，不灵活，不推荐
+        <a href="https://search.jd.com/search?keyword=手机">去京东搜索手机</a>
+        
+-->
+
+<!-- form表单控件：
+    常用表单控件：
+        文本框，用<input type="text" name="" value="">来实现
+        密码本，用<input type="password" name="" value="">来实现
+        单选框，用多个 <input type="radio" name="" value="">来实现，name值必须相同，value必须不同
+        复选框，用多个 <input type="checkbox" name="" value="">来实现，name值必须相同，value必须不同
+        隐藏域，用多个 <input type="hidden" name="" value="">来实现，没有文本框
+            作用是用户提交表单时携带一些数据，如from=toutiao，表示上一跳转页面
+        提交按钮：用 <input type="submit" value="确认"> 或 <button type="submit">确认</button> 来实现
+        重置按钮：用 <input type="reset" value="重置"> 或 <button type="reset">重置</button> 来实现
+        普通按钮：用 <button type="button">普通按钮</button> 来实现，常搭配.js/ajax使用
+        文本域，用 <textarea name="" cols="" rows=""></textarea> 来实现，cols为列数，rows为行数
+        下拉选择框，用 <select name="" ><option value="" selected></option>...</select> 来实现
+        禁用表单控件，用disabled属性来实现，可以放在任一表单控件标签里，来禁止用户修改
+        
+    属性：
+        input：
+            type=""，决定输入文本的语义，并附带不同的默认样式，如password为*****，有text、password
+            name=""，用于搜索时有固定的值，如百度wd、bilibili的keyword，其它用途可随意设置，最好贴近语义
+                name 属性是分组依据
+                    浏览器是根据 input 标签的 name 属性来决定哪些单选框是一组的。只有 name 值相同的单选框，
+                    才会互斥，只能选一个。
+            value=""，用于在输入框内预定默认值，可修改, 
+                        对于文本框，是默认值
+                        对于单选框和复选框，是提交的表单里的name的值
+                        对于按钮来说，是显示在按钮上的值
+            maxlength=""，最大长度，几字节
+            checke，没有值，用于单选框和复选框中，表示默认勾选，url中也会有相应的name值默认出现
+        botton:
+            type=""，决定bottom按钮的功能或语义，默认为 "submit"提交 ，还有"reset"重置功能，button普通按钮
+            value=""，决定botton按钮里显示的值，submit时默认为提交，reset时默认为重置
+        textarea:
+            name=""
+            cols=""，决定文本域的列数，即宽
+            rows=""，决定文本域的行数，即高
+        select:
+            name=""
+        option:
+            value=""
+            selected，表示被默认选中
+
+    问题：
+        1.method="get”的url数据丢失：
+            A.单选框控件中，必须写name和value，name值必须相同，value必须不同
+                code：
+                    性别：
+                    <input type="radio">男
+                    <input type="radio">女
+                未写name，url为 https://search.bilibili.com/search?
+
+                code：
+                    性别：
+                    <input type="radio" name="gender" >男
+                    <input type="radio" name="gender" >女
+                写了name，未写value，url为 https://search.bilibili.com/search?gender=on
+
+                code：
+                    性别：
+                    <input type="radio" name="gender" value="male">男
+                    <input type="radio" name="gender" value="female">女
+                写了name、value，url为https://search.bilibili.com/search?gender=male
+
+            B.复选框控件中，必须写name和value，name值必须相同，value必须不同，上同。
+                code：
+                    爱好：
+                    <input type="checkbox" name="hobby" value="smoking">抽烟
+                    <input type="checkbox" name="hobby" value="drinking">喝酒
+                    <input type="checkbox" name="hobby" value="perm">烫头
+                url为https://search.bilibili.com/search?hobby=smoking&hobby=drinking&hobby=perm
+            
+            C.禁用表单控件属性 disabled，与 checked 或 selected 共在一标签内时，
+                code:
+                    籍贯：
+                    <select name="province" >
+                        <option value="粤" selected disabled>广东</option>
+                        <option value="昆" >云南</option>
+                        <option value="京" >北京</option>
+                    </select>
+                url为：https://search.bilibili.com/search?account=%E5%BC%A0%E4%B8%89&pwd=&gender=male&hobby=smoking&other=&from=toutiao
+                    没有province=
+                
+                code:
+                    性别：
+                    <input type="radio" name="gender" value="male" checked disabled>男
+                    <input type="radio" name="gender" value="female">女
+                url为https://search.bilibili.com/search?account=%E5%BC%A0%E4%B8%89&pwd=&hobby=smoking&other=&province=%E7%B2%A4&from=toutiao
+                没有gender=
+-->
+
+<!-- form用lable关联标签获取焦点
+    拓展：获取焦点，即鼠标光标点击某物，某物获取焦点，可以自动进行某种功能，如点击文本框，自动进入编辑模式
+
+    label，用于说明，可以与包括 <button>、<input>、<meter>、<output>、<progress>、<select> 和 <textarea>在内的标签关联。
+    
+    关联方法：
+        1.for-id,label的for属性值，与关联标签的id属性值相同:
+            code:
+                <label for="zhanghu">账户：</label>
+                <input id="zhanghu" type="text" name="account" value="张三" maxlength="10">
+        2.label中嵌套可关联的标签：
+            code：
+                <label>
+                    密码：<input type="password" name="pwd" id="" value="" maxlength="10">
+                </label>
+    
+    必要说明：
+        1.select一般不需要与lable关联，没有实际作用，它能帮select获取焦点，但不能下拉。
+        2.lable包裹的input可以用来实现单选框、复选框，不用担心。因为，浏览器是根据inputname的属性来分组的，不会出现隔着一个
+        lable标签就实现不了单选框和复选框的功能的现象。
+        
+-->
+
+<!-- from内用fieldset和legend划区
+    fieldset标签，用于划分区域
+    legend标签，是fieldset区域的标题
+    code：
+        <fieldset>
+            <legend>主要信息</legend>
+            <label for="zhanghu">账户：</label>
+            <input id="zhanghu" type="text" name="account" value="张三" maxlength="10">
+            <br>
+            <label>
+                密码：<input type="password" name="pwd" id="" value="" maxlength="10">
+            </label>
+            <br>
+            <label>性别：</label>
+            <label>
+                <input type="radio" name="gender" value="male" checked>男
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female">女
+            </label>
+        </fieldset>
+-->
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <link rel="icon" href="./中国国旗.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    hhhhh
+    <!-- 搜索模块 -->
+    <!-- <a href="https://search.jd.com/search?keyword=手机">去京东搜索手机</a>
+    <form action="https://www.baidu.com/s" target="_blank">
+        <input type="text" name="wd">
+        <button>去百度搜索</button>
+    </form>
+    <hr>
+    <form action="https://search.jd.com/search">
+        <input type="text" name="keyword">
+        <button>去京东搜索</button>
+    </form>
+    <hr>
+    <form action="https://search.bilibili.com/all">
+        <input type="text" name="keyword">
+        <button>去bilibili搜索</button>
+    </form> -->
+
+    <!-- 表单控件 -->
+    <form action="https://search.bilibili.com/search">
+        <fieldset>
+            <legend>主要信息</legend>
+            <label for="zhanghu">账户：</label>
+            <input id="zhanghu" type="text" name="account" value="张三" maxlength="10">
+            <br>
+            <label>
+                密码：<input type="password" name="pwd" id="" value="" maxlength="10">
+            </label>
+            <br>
+            <label>性别：</label>
+            <label>
+                <input type="radio" name="gender" value="male" checked>男
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female">女
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>附加信息</legend>
+            <label>爱好：</label>
+            <label>
+                <input type="checkbox" name="hobby" value="smoking" checked>抽烟
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="drinking">喝酒
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="perm">烫头
+            </label>
+            <br>
+            <label>
+                其它：<textarea name="other" cols="25" rows="3"></textarea>
+            </label>
+            <br>
+            <label>籍贯：</label>
+            <select name="province" >
+                <option value="粤" selected >广东</option>
+                <option value="昆" >云南</option>
+                <option value="京" >北京</option>
+            </select>
+        </fieldset>
+        <input type="hidden" name="from" value="toutiao">
+        <br>
+        <button>确认</button>
+        <button type="reset">重置</button>
+        <button type="button">普通按钮</button>
+    </form>
 </body>
 </html>
