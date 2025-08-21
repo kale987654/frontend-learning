@@ -1,0 +1,56 @@
+<!-- iframe框架标签：
+    iframe框架标签，语义为用于嵌入其它文件，在一个框架内
+
+    属性：
+        iframe：
+            src=""，用于绝对路径、协议相对、相对路径地打开.png等图片，协议网址的网页
+            wieth=""，用于定义iframe框架的宽
+            height=""，用于定义iframe框架的高
+            frameborder=""，值为 0 或 1，表示是否有边框
+
+    联动的实操：
+        与a标签的跳转几乎一模一样，
+            与a标签联动，a的target的值，与iframe的name的值，保持一致
+            与form表单联动，上同
+            
+    注意：iframe是行内元素
+    注意：iframe是行内元素
+    注意：iframe是行内元素
+
+    问题：
+        1.嵌入网页时，遇到无法连接网页的现象，
+            这是正常的，不同网站都有不同的安全策略，像//www.jd.com就拒绝连接
+        
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 嵌入网页 -->
+    <!-- <iframe src="//www.taobao.com" width="900px" height="300px" frameborder="1"></iframe> -->
+
+    <!-- 嵌入广告，没找到广告 -->
+    <!-- <iframe width="900px" height="300px" frameborder="0" src=""></iframe> -->
+
+    <!-- 嵌入浏览器可打开的文件，同img的src -->
+    <!-- <iframe src="./中国国旗.ico" frameborder="0" width="50px" ></iframe> -->
+
+    <!-- 与a标签的target联动实现框架内显示内容 -->
+    <!-- <a href="//www.taobao.com" target="taobao">去淘宝</a>
+    <br>
+    <iframe name="taobao" width="900" height="300" frameborder="0"></iframe> -->
+
+    <!-- 与表单的target联动实现框架内显示内容 -->
+    <!-- <form action="//search.bilibili.com/search" target="bilibili">
+        <input type="text" name="keyword">
+        <button>搜索</button>
+    </form>
+    <iframe name="bilibili" width="900" height="300" frameborder="0"></iframe> -->
+</body>
+</html>
+
