@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本标签</title>
+    <style>
+        /* 含义和默认效果不重要，语义最重要 */
+        em{
+            color: blue;
+        }
+        strong{
+            color: red;
+        }
+        span{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        文本标签用于包裹词语、短语，如em、strong、span
+        排版标签包含文本标签，如div、p
+        排版标签通常是包裹大段的文字，而文本标签通常是包裹词语、短语
+        文本标签通常是行内元素
+     -->
+    <!--
+        em          用于要提示用户着重阅读的内容        双
+        strong      十分重要的内容（语气比em强）        双
+        span        没有语义，用于包裹短语、词语        双
+    -->
+    <!-- 生活例子：div是大包装袋，span是小包装袋 -->
+
+    <!-- 先剪切文本标签后的语句，再输入文本标签，再将剪切内容粘贴进文本标签 -->
+    <p>请用户安装<em>国家反诈中心app</em></p>
+    <p>出门一定要<strong>带钥匙</strong>!</p>
+    <p>前端有三大框架：<span>Augular、React、Vue</span></p>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!-- article独立内容标签：
+        语义为 独立内容，常用于个人博客文章、杂志、评论等
+        code：
+            <article>
+            <h2>一篇关于人工智能的博客</h2>
+            <p>人工智能正在改变世界...</p>
+            </article>
+  -->
+
+<!--section内容分组标签：
+        语义为将一模块的内容分为不同的部分，常用于一本书的章节、一个网站的简介部分、一个包含标题和内容的话题组。
+        code：
+            <section>
+                <h2>公司简介</h2>
+                <p>我们公司成立于1990年...</p>
+            </section>
+            <section>
+                <h2>我们的团队</h2>
+                <p>我们拥有顶尖的工程师...</p>
+            </section>
+  
+-->
+
+<!-- nav导航标签
+        语义为导航，常用于顶部菜单、侧边栏导航、页脚链接组。
+        code：
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/about">关于</a></li> 
+                    <li><a href="/contact">联系</a></li>
+                </ul>
+            </nav>
+-->
+
+<!-- data-* 属性：在HTML中存储自定义信息
+    它允许你在HTML标签上存一点自己的数据，方便之后用CSS或JavaScript来读取和使用。
+    格式：
+        data-你的名字="值"
+    用途：
+        给标签打上“标记”，用于交互
+    code：
+        <button data-article-id="1024" onclick="deleteArticle(this)">删除文章</button>
+        编写了一个自定义id属性，方便javasc调用来执行删除文章
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h3>日记</h3>
+        <p>我今天在梦中哭了。跟挣脱束缚、追求理解与爱情和个体的失败有关。</p>
+    </article>
+    
+    <section>
+        <h2>第一章</h2>
+        <p>月黑风高之夜，狂风骤雨之时，荒凉萧索之处，有一神态迷离之人，在一崎岖蜿蜒之路蹒跚而行...</p>
+    </section>
+    <section>
+        <h2>第二章</h2>
+        <p>。。。。。。。</p>
+    </section>
+
+    <nav>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="./school.html">学校</a></li>
+            <li><a href="./agency.html">机构</a></li>
+        </ul>
+    </nav>
+
+    <button data-article-id="1112" onclick="">删除文章</button>
+</body>
+</html>

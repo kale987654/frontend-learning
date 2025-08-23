@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .animals{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- id 全局唯一属性，同一html中不能出现同名id -->
+        <!-- a可以锚定带id的任意标签 -->
+        <a href="#hhh">去hhh</a>
+        <p id="hhh">hahaha</p>
+        <!-- lable可以与表单控件进行for-id的获取焦点的联动 -->
+        <form action="//search.bilibili.com/search">
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male" >男</label>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">女</label>
+        </form>
+    <!-- class 类名，用于为css调整样式做准备 -->
+    <div class="animals">猪</div>
+    <div class="animals">狗</div>
+    <!-- style 样式，用于为标签调整样式，可直接使用在标签里 -->
+    <div style="color: aqua;">我好帅！</div>
+    <!-- dir 显示方向顺序，用于文本标签中，可以调整文字顺序；用于块元素可以调整靠左、靠右 -->
+        <!-- 行内文本元素 -->
+        <bdo dir="rtl">我爱你</bdo>
+        <!-- 块元素 -->
+        <h3 dir="ltr">我爱你</h3>
+        <h3 dir="rtl">我爱你</h3>
+    <!-- title 标题说明，用于鼠标光标悬停在某一内容，如图片、超链接 -->
+    <a href="//www.taobao.com" title="淘宝">淘宝</a>
+    <img src="./中国国旗.ico" title="中国国旗">
+    <!-- lang 语言，用于给特定标签设定语言 -->
+    <p lang="en">i love en</p>
+</body>
+</html>
