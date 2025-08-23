@@ -1,0 +1,65 @@
+<!-- 样式表间与内的优先级
+    1.行内样式优先级比内部样式、外部样式高。
+
+    2.内部样式与外部样式平级，具体应用以后写的同级样式为主。
+
+    3.同一样式表内，有两个同级的样式，如两个h1，以后写的h1里的重复样式为准。
+
+    4.内部样式中有两个元素具有相同的样式，外部样式也是，怎么判断？
+        内部样式中后写的样式，与外部样式中后写的样式，pk，谁后，谁应用。
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- 1.行内样式优先级比内部样式、外部样式高
+    <link rel="stylesheet" href="./11.css">
+    <style>
+        h1{
+            color: blue;
+        }
+    </style>
+    <h1 style="color: red;">hello,world!</h1> -->
+
+    <!-- 2.内部样式与外部样式平级，具体应用以后写的同级样式为主。
+    <link rel="stylesheet" href="./11.css">
+    <style>
+        h1{
+            color: blue;
+        }
+    </style>
+    <h1>hello,world!</h1>
+    -->
+
+    <!-- 3.同一样式表内，有两个同级的样式，如两个h1，以后写的h1里的重复样式为准。
+    <style>
+        h1{
+            color: blue;
+        }
+        h1{
+            color: red;
+        }
+    </style>
+    <h1>hello,world!</h1>
+    <h2 style="color: darkblue; color: pink;">how large is it!</h2>
+     -->
+    
+    <!-- 4.内部样式中有两个元素具有相同的样式，外部样式也是
+    <style>
+        h1{
+            color: red;
+        }
+        h1{
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" href="./11.css">
+    <h1>hello,world!</h1> -->
+</body>
+</html>

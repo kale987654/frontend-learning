@@ -1,0 +1,225 @@
+<!-- 通配选择器
+    作用：选中所有html元素
+    语法:* {
+            属性名: 值;
+         }
+-->
+<!-- 元素选择器
+    作用：选中html中的所有同名标签/元素，如p、h1
+    语法规则：元素名 {
+                    属性名: 值;
+             }
+-->
+<!-- 类选择器
+    作用：将class的值相同的标签选中
+    语法格式：.类名{
+                属性: 值;
+             }
+    注意：
+        1.一个标签内不可以又多个class属性，但是一个标签内的一个class属性可以有多个值或类名，值间用空格隔开，
+            如class="speek big"
+        2.class属性的类名的编写规范：
+            类名由字母或和数字组成，不能有单独数字，或者数字开头。
+            多个字母构成类名时，字母间用 - 连接。
+            类名必须要有实际语义，使人能见文知意，如left-menu。
+            多个类名并存于class属性时，类名间用空格 隔开。
+-->
+<!-- ID选择器
+    作用：精确地选中具有某一id值得元素
+    语法规则：#ID名 {
+                    属性名: 值;
+                }
+    注意：
+        1.编写规则。一个ID属性的值有字母、数字、下划线_、短横线-等4个内容，不能以数字开头。
+        2.一个元素可以同时拥有id属性和class属性，意味着id选择器和类选择器可以同时选中这个元素，以便设置样式。
+        3.id属性的值中不能包括空格。html中认为空格是值的一部分，而css中会跳过选择器与声明块间的空格。
+        4.html中不能出现同样的id属性值。
+        5.一个元素不能拥有两个id属性。
+-->
+<!-- 交集选择器
+    定义：多个基础选择器共同使用的选择器
+    作用：用于选中同时符合多种选择器条件的元素
+    语法规则：
+        核心：选择器间紧紧连在一起。
+        1.元素+类：元素名.类名 {
+                        属性名: 值;          
+                   }
+        2.类+类：.类名.类名{
+                       属性名: 值;
+                 }
+        3.元素+类+id（没实际用处）：元素名.类名#id名{
+                                        属性名: 值;
+                                  }
+    注意：
+        1.元素与元素不能共用于交集选择器，因为交集选择器用来选中一个元素，不是多个，只能用于并集选择器，用逗号隔开。
+        2.id选择器一般不用于交集选择器。因为id本来就是全局唯一属性，不需要交集于多个父集。
+
+-->
+<!-- 并集选择器
+    定义：选中多个选择器选中的元素
+    语法格式：选择器1,
+             选择器2,
+             选择器3,
+             ... {
+                属性名: 值;
+             }
+    注意：
+        1.并集选中器一般竖着写，逗号后接换行。
+        2.任意选择器都可以用来组成并集选择器。
+        3.并集选择器用于集体声明，以减少样式表的体积。
+-->
+<!-- html标签间的关系
+    1.父元素
+        定义：直接包含元素的元素，是被包含的元素的父元素
+        如示例，div是h3和ul的父元素
+    2.子元素
+        定义：直接被包含的元素，是包含的元素的子元素
+        如示例，h3和ul是div的子元素
+    3.祖先元素
+        定义：父亲的父亲的...至少隔一个父元素，尽管父元素也是祖先元素，但先这么定义
+        如示例，div是li和dd的祖先元素
+    4.后代元素
+        定义：儿子的儿子的...至少隔一个子元素
+        如示例，li和dd是div的后代元素
+    5.兄弟元素
+        定义：在同一父元素下的同级元素
+        如示例，h3和ul是兄弟元素
+
+    示例：<div>
+            <h3>yy</h3>
+            <ul>
+                <li>hh</li>
+                <li>ll</li>
+                <dd>
+                    <span>qq</span>
+                </dd>
+            </ul>
+        </div>
+-->
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 通配选择器
+    <style>
+        * {
+            color: blue;
+            font-size: 40px;
+        }
+    </style>
+    <h3>土味情话大全</h3>
+    <p>你在我心里有一块地，我对你的死心塌地。</p>
+    <p>草莓、蓝莓、蔓越莓，你今天想我了没？</p>
+    <p>万水千山总是情，你爱一下行不行？</p> -->
+    <!-- 元素选择器
+    <style>
+        h1 {
+            color: red;
+            font-size: 40px;
+        }
+    </style>
+    <h1>欢迎来到这个世界，请领取您的专属福利礼包！</h1> -->
+    <!-- 类选择器
+    <style>
+        .speak{
+            color: red;
+        }
+        .reply{
+            color: green;
+        }
+        .size{
+            font-size: 40px;
+        }
+    </style>
+    <p class="speak size">你吃饭了吗？</p>
+    <p class="reply size">我刚吃，你要来我家吃吗？</p>
+    <p class="speak size">好啊，我带几瓶酒。</p>
+    <p class="reply size">那我先保温。你来吧。</p> -->
+    <!-- ID选择器
+    <style>
+        #provocation {
+            color: pink;
+        }
+        .dialogue {
+            font-size: 40px;
+        }
+    </style>
+    <p id="provocation" class="dialogue">我好怕怕呀!来打我呀!</p> -->
+    <!-- 交集选择器
+    <style>
+        .name {
+            color: red;
+        }
+        .age {
+            color: black;
+        }
+        #ID-stu {
+            color: pink;
+        }
+        .students {
+            font-size: 30px;
+        }
+        .teachers {
+            font-size: 40px;
+        }
+        p.name{
+            color: green;
+        }
+        .name.students {
+            color: aqua;
+        }
+        p.teachers#ID-tea {
+            font-size: 100px;
+        }
+        
+    </style>
+    <p class="name students">张三</p>
+    <p class="age">年龄：16</p>
+    <p id="ID-stu">ID:2501078</p>
+    <hr>
+    <p class="name teachers">李四</p>
+    <p class="age">年龄：32</p>
+    <p class="teachers" id="ID-tea">ID：1902008</p> -->
+    <!-- 并集选择器
+    <style>
+        .atm {
+            color: red;
+        }
+        .xcm {
+            color: green;
+        }
+        .lbxx {
+            color: yellow;
+        }
+        #china {
+            width: 200px;
+        }
+        h3,
+        .atm,
+        .xcm,
+        .lbxx,
+        #china
+         {
+            font-size: 40px;
+            background-color: gray;
+        }
+    </style>
+    <h3>00后回忆动漫</h3>
+    <p class="atm">奥特曼</p>
+    <p class="xcm">熊出没</p>
+    <p class="lbxx">蜡笔小新</p>
+    <img id="china" src="../../../html/notes/中国国旗.ico"> -->
+    
+
+
+
+
+
+</body>
+</html>

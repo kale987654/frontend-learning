@@ -1,0 +1,32 @@
+<!-- css语法规范
+    一个css语块，由选择器与声明块组成。
+        声明块由一个个声明组成。
+            声明由属性名+":"+属性值+";"构成，如color: red;
+    细节：
+        选择器与声明块中间有个空格；
+        属性名:后又个空格。
+-->
+
+<!-- css语法风格
+    展开风格,用于项目开发期的便于维护和调试
+        h1 {
+            color: red;
+            font-size: 40px;
+        }
+    紧凑风格，用于项目上线期的缩小文件大小，加快网页打开速度，减少网络流量
+        h1 {color: red;font-size: 40px;}
+
+    可用webpacka工具将css的代码风格从展开变到紧凑
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./01.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>我们都已出发，但不知身往何方。</h1>
+</body>
+</html>

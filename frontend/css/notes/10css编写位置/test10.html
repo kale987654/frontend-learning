@@ -1,0 +1,52 @@
+<!-- css编写位置：
+    行内样式，即在标签中添加style属性，后自行添加值，格式为style="名: 值;"
+
+    html内部样式，即在html的head标签里添加style标签，根据选择器为目标标签添加样式，
+        <style>
+            h3{
+                color: red;
+                font-size: 40px;
+            }
+        </style>
+    
+    css外部样式，即在html的head里添加link标签，来连接外部文件并设置关联属性。
+    .css文件遵循css编写规范
+       <link rel="stylesheet" href="./position.css">
+
+    注意：body中可以写style、link标签，但建议写在head。
+            因为head表头，一般写的是html文件的标题和具体属性，而body是用于呈现内容的。注意语义逻辑。
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="./position.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        h3{
+            color: red;
+            font-size: 40px;
+        }
+        p{
+            color: blue;
+        }
+    </style> -->
+</head>
+<body>
+    <!-- 行内样式
+        <h3 style="color: red;font-size: 40px;">hello,world!</h3>
+     -->
+
+    <!-- html内部样式
+        <h3>hello,world!</h3>
+        <p>The world is large.There are many people.But they always fighted themselves.Ah,this is truth.</p>
+     -->
+    
+    <!-- css外部样式
+        <h3>hello,world!</h3>
+        <p>The world is large.There are many people.But they always fighted themselves.Ah,this is truth.</p>    
+    -->
+</body>
+</html>
